@@ -1,6 +1,8 @@
 import React from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { Suspense } from 'react';
+const Button = React.lazy(() => import('devfestalpsdesignsystem/Button'));
 
 function App() {
   return (
@@ -15,13 +17,10 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Button />
+        </Suspense>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
